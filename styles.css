@@ -1,0 +1,252 @@
+/* Color and type tokens — change these to restyle the whole page */
+:root {
+  --paper: #f4efe6;
+  --ink: #1c1916;
+  --muted: #6a6258;
+  --rule: #d9d0c3;
+  --accent: #7a2e24;
+  --card: #fbf7f0;
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Narrow, magazine-like column */
+main,
+.masthead,
+footer {
+  width: min(680px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Masthead */
+.masthead {
+  padding: 4.5rem 0 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 8vw, 4.25rem);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.subhead {
+  margin-top: 1.25rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+  max-width: 34em;
+  margin-inline: auto;
+}
+
+/* Signup */
+.signup {
+  padding: 2.25rem 0 2.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.signup-form label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.signup-row {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.signup-row input {
+  flex: 1;
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--rule);
+  background: var(--card);
+  color: var(--ink);
+  outline: none;
+}
+
+.signup-row input:focus {
+  border-color: var(--ink);
+}
+
+.signup-row button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.15rem;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.signup-row button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.signup-row input.error {
+  border-color: var(--accent);
+}
+
+.signup-message {
+  min-height: 1.4em;
+  margin-top: 0.7rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.signup-message.success {
+  color: var(--accent);
+}
+
+/* Topics */
+.topics,
+.articles {
+  padding: 2.75rem 0;
+}
+
+.topics {
+  border-bottom: 1px solid var(--rule);
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin-bottom: 1.75rem;
+}
+
+.topic-list {
+  list-style: none;
+  display: grid;
+  gap: 1.6rem;
+}
+
+.topic-list li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.topic-num {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--accent);
+  padding-top: 0.15rem;
+}
+
+.topic-list h3,
+.article-card h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.topic-list p,
+.article-card p {
+  color: var(--muted);
+}
+
+/* Article cards */
+.article-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.article-card {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 1.35rem 1.4rem 1.45rem;
+}
+
+.article-card:hover {
+  border-color: var(--ink);
+}
+
+.article-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.article-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.article-card h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+footer {
+  padding: 2rem 0 3.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Stack the form on small screens */
+@media (max-width: 560px) {
+  .signup-row {
+    flex-direction: column;
+  }
+
+  .topic-list li {
+    grid-template-columns: 2.4rem 1fr;
+  }
+}
